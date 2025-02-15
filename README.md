@@ -22,16 +22,16 @@ O **Packer** é uma ferramenta de automação desenvolvida para criar imagens de
 ---
 
 ## 2. Descrição do Problema
-Em ambientes de TI, a instalação e configuração manual de sistemas operacionais para múltiples servidores ou máquinas virtuais pode ser um processo demorado, sujeito a inconsistências e erros humanos.  
-**Situação Hipotética:** 
-Imagine uma equipe de TI que precisa implantar um ambiente com diversos servidores baseados no Debian 12.9 para testes de um novo software. Cada servidor precisa ser configurado de forma idéntica, garantindo que não haja variações que possam comprometer os testes. A configuração manual não só é trabalhosa, mas tambiém pode resultar em falhas que atrasam o projeto. Assim, é fundamental adotar uma solução automatizada que permita a criação de imagens de sistemas consistentes e replicáveis.
+Em ambientes de TI, a instalação e configuração manual de sistemas operacionais para múltiplos servidores ou máquinas virtuais pode ser um processo demorado, sujeito a inconsistências e erros humanos.  
+**Cenário-lab:** 
+Imagine uma equipe de TI que precisa implantar um ambiente com diversos servidores baseados no Debian 12.9 para testes de um novo software. Cada servidor precisa ser configurado de forma idéntica, garantindo que não haja variações que possam comprometer os testes. A configuração manual não só é trabalhosa, mas também pode resultar em falhas que atrasam o projeto. Assim, é fundamental adotar uma solução automatizada que permita a criação de imagens de sistemas consistentes e replicáveis.
 
 ---
 
 ## 3. Solução
 A solução proposta utiliza o **Packer** para automatizar a criação de uma imagem personalizada do Debian 12.9, combinando o plugin **QEMU** para virtualização e um arquivo `preseed.cfg` para realizar a instalação sem intervenção manual. A seguir, os passos implementados:
 
-#### Passo 1: Prepariação do Ambiente
+#### Passo 1: Preparação do Ambiente
 - **Instalação das Dependências:**  
 ```bash
 sudo apt update && sudo apt install -y packer qemu-kvm
@@ -58,55 +58,11 @@ Após o término, a imagem no formato `.qcow2` será gerada no diretório `outpu
 - **Verificar a Imagem:** Confirme a existência do arquivo gerado:
 
 ```bash
-ls output-debian12.9.0/
+ls linux/BuildGerada
 ```
 _Saída esperada:_
 ```
-debian.qcow2
-```
-
-- **Iniciar a Máquina Virtual com QEMU:**
-
-```bash
-qemu-system-x86_64 \
-    -enable-kvm \
-    -m 2048 \
-    -smp 2 \
-    -drive file=output-debian12.9.0/debian.qcow2,format=qcow2 \
-    -net nic -net user \
-    -vga virtio \
-    -display gtk
-```
-
--  **Configuração Adicional (se necessário):** Caso a senha ou usuário não estejam definidos, acesse o modo de recuperação:
-1. No menu GRUB, pressione `e` para editar.
-2. Adicione `init=/bin/bash` ao final da linha do kernel.
-3. Inicie com `Ctrl + X` ou `F10`.
-4. Execute `passwd` para definir uma nova senha para o usuário root.
-
-- **Acesso via SSH (Opcional):** Verifique o IP da máquina dentro da VM:
-
-```bash
-ip a
-```
-
-Em seguida, conecte-se:
-
-```bash
-ssh usuario@IP_DA_VM
-```
-
-- **Finalização da Máquina Virtual:** Para desligar a VM de forma adequada:
-
-```bash
-sudo shutdown -h now
-```
-
-Ou, se estiver utilizando o QEMU sem interface gráfica:
-
-```bash
-qemu-system-x86_64 -drive file=output-debian12.9.0/debian.qcow2,format=qcow2 -monitor stdio
-(qemu) system_powerdown
+packer-debian.qcow2
 ```
 
 ---
