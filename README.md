@@ -115,3 +115,4 @@ qemu-system-x86_64 -drive file=output-debian12.9.0/debian.qcow2,format=qcow2 -mo
 - [Documentação do Packer](https://developer.hashicorp.com/packer)
 - [Site do Debian](https://www.debian.org/)
 - [Site do QEMU](https://www.qemu.org/)
+- [Emojipedia (para ícones)](https://emojipedia.org/)
