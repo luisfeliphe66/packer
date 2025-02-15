@@ -23,7 +23,7 @@ O **Packer** é uma ferramenta de automação desenvolvida para criar imagens de
 
 ## 2. Descrição do Problema
 Em ambientes de TI, a instalação e configuração manual de sistemas operacionais para múltiplos servidores ou máquinas virtuais pode ser um processo demorado, sujeito a inconsistências e erros humanos.  
-**Cenário-lab:** 
+**Cenário-lab:**
 Imagine uma equipe de TI que precisa implantar um ambiente com diversos servidores baseados no Debian 12.9 para testes de um novo software. Cada servidor precisa ser configurado de forma idéntica, garantindo que não haja variações que possam comprometer os testes. A configuração manual não só é trabalhosa, mas também pode resultar em falhas que atrasam o projeto. Assim, é fundamental adotar uma solução automatizada que permita a criação de imagens de sistemas consistentes e replicáveis.
 
 ---
