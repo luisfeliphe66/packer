@@ -116,3 +116,4 @@ qemu-system-x86_64 -drive file=output-debian12.9.0/debian.qcow2,format=qcow2 -mo
 - [Site do Debian](https://www.debian.org/)
 - [Site do QEMU](https://www.qemu.org/)
 - [Emojipedia (para ícones)](https://emojipedia.org/)
+- [Vídeo demonstrando a instalação automatizada](https://youtu.be/Ez60E4zwGOQ)
