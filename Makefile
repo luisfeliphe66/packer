@@ -5,7 +5,7 @@ CMAKE := $(MAKE) --no-print-directory
 
 PROJECT_DIR := $(CURDIR)
 
-# all our targets are phony (no files to check).
+# Comando e helps do projeto.
 .PHONY: help dependency deploy build check install-packer install-virtualbox install-vmware structure
 
 help:
@@ -30,7 +30,7 @@ help:
 	@echo ''
 	@echo '  install-qemu           Install Qemu KVM.'
 
-# Compounded service targets:
+# Metas de serviço compostas, cria a base do projeto com suas dependências:
 dependency:
 	$(CMAKE) check
 	$(CMAKE) install-packer
@@ -39,11 +39,7 @@ dependency:
 deploy:
 	$(CMAKE) dependency
 
-# Selecione sem swap
-sem_swap:
-	$(CMAKE) build path=build/linux/debian/12.8/sem_swap/qemu PACKER_LOG=1
-
-# Application service targets:
+# Destinos de serviço de aplicativo:
 build:
 	@echo "A imagem está sendo criada..."
 	@packer build -force build/debian/12.9/sem_swap/qemu/build.qemu.pkr.hcl
