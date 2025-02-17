@@ -53,6 +53,7 @@ build {
     "source.qemu.debian"
   ]
 
+# INFORMACAO SCRIPT POS-INSTALAÇÃO
 provisioner "file" {
   source      = "build/debian/12.9/sem_swap/qemu/scripts/provision.sh"
   destination = "/tmp/provision.sh"
