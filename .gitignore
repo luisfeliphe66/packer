@@ -1,0 +1,11 @@
+# Local environment variables
+.env.local
+
+# Override defaults packer variables
+secrets.local.auto.pkrvars.hcl
+
+# Ignore all output ovf/ova directory
+ova/
+ovf/
+.output/
+build/linux/debian/12.7/sem_swap/qemu/output/debian-12.7.0-amd64-sem-swap.qcow2
