@@ -73,4 +73,4 @@ debian-12.9.0-amd64-sem-swap.qcow2
 - [Site do Debian](https://www.debian.org/)
 - [Site do QEMU](https://www.qemu.org/)
 - [Emojipedia (para ícones)](https://emojipedia.org/)
-- [Vídeo demonstrando a instalação automatizada](https://youtu.be/Ez60E4zwGOQ)
+- [Vídeo demonstrando a instalação automatizada](https://youtu.be/vqx-XXcZ4wk)
